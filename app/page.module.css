@@ -1,0 +1,352 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.scanline {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.08) 3px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+}
+
+/* ── HEADER ── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10, 11, 8, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.headerInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logoEyebrow {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--orange-accent);
+  text-transform: uppercase;
+}
+
+.logoTitle {
+  font-family: "Bebas Neue", cursive;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  animation: flicker 8s infinite;
+}
+
+.logoSub {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statPill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.statNum {
+  font-family: "Bebas Neue", cursive;
+  font-size: 24px;
+  color: var(--green-bright);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+}
+
+.headerDivider {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--green-dim) 20%,
+    var(--green-primary) 50%,
+    var(--green-dim) 80%,
+    transparent 100%
+  );
+}
+
+/* ── SUBMIT BUTTON ── */
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--green-dim);
+  border: 1px solid var(--green-primary);
+  color: var(--green-bright);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.submitBtn:hover {
+  background: var(--green-primary);
+  color: var(--bg-deep);
+  box-shadow: 0 0 20px rgba(122, 179, 39, 0.4);
+}
+
+.submitIcon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ── MAIN ── */
+.main {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  animation: fadeInUp 0.4s ease;
+}
+
+/* ── CARD ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(122,179,39,0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: var(--green-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px var(--green-dim);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.cardImageFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--bg-panel),
+    var(--bg-panel) 8px,
+    rgba(42,48,32,0.5) 8px,
+    rgba(42,48,32,0.5) 16px
+  );
+}
+
+.cardImageFallback span {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+}
+
+.weaponBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 8px;
+  background: rgba(10, 11, 8, 0.85);
+  border: 1px solid;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.cardBody {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: "Bebas Neue", cursive;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.cardDesc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.cardAuthor {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--green-primary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.authorDot {
+  font-size: 7px;
+  color: var(--orange-accent);
+}
+
+.cardDate {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* ── EMPTY STATE ── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 100px 32px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  color: var(--green-dim);
+  animation: pulse-glow 3s infinite;
+}
+
+.emptyTitle {
+  font-family: "Bebas Neue", cursive;
+  font-size: 32px;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.emptyText {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+/* ── FOOTER ── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .headerInner { padding: 14px 16px; }
+  .logoTitle { font-size: 28px; }
+  .main { padding: 24px 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .statPill { display: none; }
+}

@@ -1,0 +1,84 @@
+:root {
+  --bg-deep: #0a0b08;
+  --bg-card: #111410;
+  --bg-panel: #161a12;
+  --border: #2a3020;
+  --border-bright: #4a5a35;
+  --green-primary: #7ab327;
+  --green-bright: #9ed636;
+  --green-dim: #3d5c14;
+  --orange-accent: #d4691e;
+  --orange-bright: #f0853c;
+  --text-primary: #e8ead0;
+  --text-secondary: #8a9270;
+  --text-dim: #4a5240;
+  --red-danger: #b83232;
+  --yellow-highlight: #c8a228;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: "Barlow", sans-serif;
+  min-height: 100vh;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(122, 179, 39, 0.015) 2px,
+      rgba(122, 179, 39, 0.015) 4px
+    ),
+    radial-gradient(ellipse at 20% 0%, rgba(122, 179, 39, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(212, 105, 30, 0.04) 0%, transparent 50%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--green-primary); }
+
+/* Utilities */
+.font-display { font-family: "Bebas Neue", cursive; }
+.font-condensed { font-family: "Barlow Condensed", sans-serif; }
+
+/* Animations */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.85; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(122,179,39,0.3); }
+  50% { box-shadow: 0 0 20px rgba(122,179,39,0.6), 0 0 40px rgba(122,179,39,0.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
