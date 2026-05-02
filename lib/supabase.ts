@@ -14,4 +14,6 @@ export type Loadout = {
   attachments: string;
   description: string;
   image_url: string | null;
+  likes: number;
+  views: number;
 };

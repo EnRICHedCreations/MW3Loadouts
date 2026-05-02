@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { supabase, Loadout } from "@/lib/supabase";
+import { ShareButton } from "./ShareButton";
+import { LikeButton } from "./LikeButton";
 import styles from "./loadout.module.css";
 
 async function getLoadout(id: string): Promise<Loadout | null> {
@@ -15,6 +17,10 @@ async function getLoadout(id: string): Promise<Loadout | null> {
   return data;
 }
 
+async function incrementViews(id: string) {
+  await supabase.rpc("increment_views", { loadout_id: id });
+}
+
 export default async function LoadoutPage({
   params,
 }: {
@@ -22,6 +28,9 @@ export default async function LoadoutPage({
 }) {
   const loadout = await getLoadout(params.id);
   if (!loadout) notFound();
+
+  // Fire-and-forget view increment
+  await incrementViews(params.id);
 
   const attachmentLines = loadout.attachments
     .split("\n")
@@ -35,7 +44,10 @@ export default async function LoadoutPage({
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link href="/" className={styles.backBtn}>← BACK TO VAULT</Link>
-          <div className={styles.weaponBadge}>{loadout.weapon_class}</div>
+          <div className={styles.headerRight}>
+            <div className={styles.weaponBadge}>{loadout.weapon_class}</div>
+            <ShareButton title={loadout.title} />
+          </div>
         </div>
         <div className={styles.headerDivider} />
       </header>
@@ -75,6 +87,10 @@ export default async function LoadoutPage({
                     year: "numeric", month: "long", day: "numeric",
                   })}
                 </span>
+              </div>
+              <div className={styles.engagementRow}>
+                <LikeButton loadoutId={loadout.id} initialLikes={loadout.likes} />
+                <span className={styles.viewStat}>◉ {loadout.views + 1} VIEWS</span>
               </div>
             </div>
 

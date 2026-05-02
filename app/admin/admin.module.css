@@ -1,0 +1,203 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.scanline {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px
+  );
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10, 11, 8, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.headerInner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.backBtn {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  transition: all 0.15s ease;
+}
+.backBtn:hover { color: var(--green-bright); border-color: var(--green-dim); }
+
+.logoTitle {
+  font-family: "Bebas Neue", cursive;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.headerDivider {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%, var(--green-dim) 20%,
+    var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%
+  );
+}
+
+.main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 0 32px;
+}
+
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+}
+
+.panelDot { color: var(--orange-accent); font-size: 9px; }
+
+.panelBody {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  border-left: 2px solid var(--border-bright);
+  padding-left: 14px;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotDim { background: var(--text-dim); }
+.dotGreen {
+  background: var(--green-bright);
+  box-shadow: 0 0 8px var(--green-bright);
+  animation: pulse-glow 2s infinite;
+}
+.dotRed { background: var(--red-danger); box-shadow: 0 0 8px var(--red-danger); }
+.dotYellow {
+  background: var(--yellow-highlight);
+  animation: pulse-glow 0.8s infinite;
+}
+
+.statusText {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+}
+
+.lastPinged {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+.pingBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 24px;
+  background: var(--green-dim);
+  border: 1px solid var(--green-primary);
+  color: var(--green-bright);
+  font-family: "Bebas Neue", cursive;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.pingBtn:hover:not(:disabled) {
+  background: var(--green-primary);
+  color: var(--bg-deep);
+  box-shadow: 0 0 30px rgba(122,179,39,0.4);
+}
+
+.pingBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(122, 179, 39, 0.3);
+  border-top-color: var(--green-bright);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+  .main { padding: 0 16px; margin: 32px auto; }
+  .headerInner { padding: 14px 16px; }
+  .statusRow { flex-direction: column; align-items: flex-start; gap: 8px; }
+}

@@ -1,19 +1,11 @@
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
+.wrapper { min-height: 100vh; display: flex; flex-direction: column; position: relative; }
 
 .scanline {
   pointer-events: none;
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: repeating-linear-gradient(
-    0deg, transparent, transparent 3px,
-    rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px
-  );
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px);
 }
 
 .header {
@@ -33,6 +25,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.headerRight { display: flex; align-items: center; gap: 10px; }
 
 .backBtn {
   font-family: "Barlow Condensed", sans-serif;
@@ -58,21 +52,26 @@
   background: rgba(122,179,39,0.08);
 }
 
+.shareBtn {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 5px 12px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.shareBtn:hover { border-color: var(--green-primary); color: var(--green-bright); }
+
 .headerDivider {
   height: 2px;
-  background: linear-gradient(90deg,
-    transparent 0%, var(--green-dim) 20%,
-    var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, var(--green-dim) 20%, var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%);
 }
 
-.main {
-  flex: 1;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 32px;
-}
+.main { flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 40px 32px; }
 
 .layout {
   display: grid;
@@ -81,8 +80,6 @@
   align-items: start;
   animation: fadeInUp 0.3s ease;
 }
-
-.imageCol {}
 
 .imageFrame {
   width: 100%;
@@ -99,26 +96,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: repeating-linear-gradient(
-    45deg, var(--bg-panel), var(--bg-panel) 8px,
-    rgba(42,48,32,0.5) 8px, rgba(42,48,32,0.5) 16px
-  );
+  background: repeating-linear-gradient(45deg, var(--bg-panel), var(--bg-panel) 8px, rgba(42,48,32,0.5) 8px, rgba(42,48,32,0.5) 16px);
   font-family: "Barlow Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.2em;
   color: var(--text-dim);
 }
 
-.infoCol {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
+.infoCol { display: flex; flex-direction: column; gap: 24px; }
 
-.titleBlock {
-  border-left: 3px solid var(--green-primary);
-  padding-left: 16px;
-}
+.titleBlock { border-left: 3px solid var(--green-primary); padding-left: 16px; }
 
 .title {
   font-family: "Bebas Neue", cursive;
@@ -128,12 +115,7 @@
   line-height: 1.1;
 }
 
-.meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 8px;
-}
+.meta { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
 
 .author {
   font-family: "Barlow Condensed", sans-serif;
@@ -155,12 +137,47 @@
   letter-spacing: 0.08em;
 }
 
-/* Panels */
-.panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  overflow: hidden;
+.engagementRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
 }
+
+.likeBtn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.likeBtn:hover {
+  border-color: #c0405a;
+  color: #e06080;
+  background: rgba(192, 64, 90, 0.08);
+}
+
+.likeBtnActive {
+  border-color: #c0405a !important;
+  color: #e06080 !important;
+  background: rgba(192, 64, 90, 0.12) !important;
+}
+
+.viewStat {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+/* Panels */
+.panel { background: var(--bg-card); border: 1px solid var(--border); overflow: hidden; }
 
 .panelLabel {
   display: flex;
@@ -188,17 +205,9 @@
   padding: 2px 8px;
 }
 
-.description {
-  padding: 14px 16px;
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
+.description { padding: 14px 16px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
 
-.attachmentList {
-  list-style: none;
-  padding: 8px 0;
-}
+.attachmentList { list-style: none; padding: 8px 0; }
 
 .attachmentItem {
   display: flex;
@@ -223,10 +232,7 @@
   flex-shrink: 0;
 }
 
-.slotSep {
-  color: var(--text-dim);
-  font-size: 12px;
-}
+.slotSep { color: var(--text-dim); font-size: 12px; }
 
 .attachName {
   font-family: "Barlow Condensed", sans-serif;
