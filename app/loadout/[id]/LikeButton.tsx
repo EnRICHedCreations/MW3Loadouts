@@ -11,7 +11,7 @@ export function LikeButton({
   loadoutId: string;
   initialLikes: number;
 }) {
-  const [likes, setLikes] = useState(initialLikes);
+  const [likes, setLikes] = useState(initialLikes ?? 0);
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {

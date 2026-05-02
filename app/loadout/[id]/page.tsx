@@ -90,7 +90,7 @@ export default async function LoadoutPage({
               </div>
               <div className={styles.engagementRow}>
                 <LikeButton loadoutId={loadout.id} initialLikes={loadout.likes} />
-                <span className={styles.viewStat}>◉ {loadout.views + 1} VIEWS</span>
+                <span className={styles.viewStat}>◉ {(loadout.views ?? 0) + 1} VIEWS</span>
               </div>
             </div>
 
