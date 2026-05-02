@@ -10,9 +10,8 @@ export default function LandingPage() {
       <nav className={styles.nav}>
         <div className={styles.navInner}>
           <div className={styles.navLogo}>
-            <div className={styles.logoEyebrow}>CALL OF DUTY: MODERN WARFARE IV</div>
-            <h1 className={styles.logoTitle}>LOADOUT VAULT</h1>
-            <div className={styles.logoSub}>BUILT BY RUSH GAMBINO</div>
+            <span className={styles.navEyebrow}>CALL OF DUTY</span>
+            <span className={styles.navTitle}>LOADOUT VAULT</span>
           </div>
           <div className={styles.navLinks}>
             <Link href="/loadoutvault" className={styles.navLink}>BROWSE LOADOUTS</Link>
