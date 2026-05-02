@@ -32,7 +32,7 @@ export function LoadoutGrid({ loadouts: initial }: { loadouts: Loadout[] }) {
   const [likedIds, setLikedIds] = useState<Set<string>>(() => {
     if (typeof window === "undefined") return new Set();
     try {
-      return new Set(JSON.parse(localStorage.getItem("liked_loadouts") || "[]"));
+      return new Set<string>(JSON.parse(localStorage.getItem("liked_loadouts") || "[]"));
     } catch { return new Set(); }
   });
 
@@ -49,7 +49,7 @@ export function LoadoutGrid({ loadouts: initial }: { loadouts: Loadout[] }) {
     const next = new Set(likedIds);
     alreadyLiked ? next.delete(id) : next.add(id);
     setLikedIds(next);
-    localStorage.setItem("liked_loadouts", JSON.stringify([...next]));
+    localStorage.setItem("liked_loadouts", JSON.stringify(Array.from(next)));
 
     await supabase.rpc(alreadyLiked ? "decrement_likes" : "increment_likes", {
       loadout_id: id,
