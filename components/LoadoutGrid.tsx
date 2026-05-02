@@ -199,9 +199,9 @@ export function LoadoutGrid({ loadouts: initial }: { loadouts: Loadout[] }) {
                       onClick={(e) => handleLike(e, loadout.id)}
                       title={likedIds.has(loadout.id) ? "Unlike" : "Like"}
                     >
-                      ❤ {loadout.likes}
+                      ❤ {loadout.likes ?? 0}
                     </button>
-                    <span className={styles.viewCount}>◉ {loadout.views}</span>
+                    <span className={styles.viewCount}>◉ {loadout.views ?? 0}</span>
                   </div>
                 </div>
               </div>
