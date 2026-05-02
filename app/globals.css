@@ -1,17 +1,17 @@
 :root {
-  --bg-deep: #0a0b08;
-  --bg-card: #111410;
-  --bg-panel: #161a12;
-  --border: #2a3020;
-  --border-bright: #4a5a35;
-  --green-primary: #7ab327;
-  --green-bright: #9ed636;
-  --green-dim: #3d5c14;
-  --orange-accent: #d4691e;
-  --orange-bright: #f0853c;
-  --text-primary: #e8ead0;
-  --text-secondary: #8a9270;
-  --text-dim: #4a5240;
+  --bg-deep: #0a0808;
+  --bg-card: #110e0e;
+  --bg-panel: #1a1212;
+  --border: #301818;
+  --border-bright: #5a2020;
+  --green-primary: #cc2020;
+  --green-bright: #f03030;
+  --green-dim: #5c1414;
+  --orange-accent: #cc2020;
+  --orange-bright: #f03030;
+  --text-primary: #ead0d0;
+  --text-secondary: #927070;
+  --text-dim: #523838;
   --red-danger: #b83232;
   --yellow-highlight: #c8a228;
 }
@@ -36,11 +36,11 @@ body {
       0deg,
       transparent,
       transparent 2px,
-      rgba(122, 179, 39, 0.015) 2px,
-      rgba(122, 179, 39, 0.015) 4px
+      rgba(204, 32, 32, 0.015) 2px,
+      rgba(204, 32, 32, 0.015) 4px
     ),
-    radial-gradient(ellipse at 20% 0%, rgba(122, 179, 39, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(212, 105, 30, 0.04) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 0%, rgba(204, 32, 32, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(160, 20, 20, 0.05) 0%, transparent 50%);
 }
 
 /* Scrollbar */
@@ -74,8 +74,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(122,179,39,0.3); }
-  50% { box-shadow: 0 0 20px rgba(122,179,39,0.6), 0 0 40px rgba(122,179,39,0.2); }
+  0%, 100% { box-shadow: 0 0 8px rgba(204,32,32,0.3); }
+  50% { box-shadow: 0 0 20px rgba(204,32,32,0.6), 0 0 40px rgba(204,32,32,0.2); }
 }
 
 @keyframes shimmer {
