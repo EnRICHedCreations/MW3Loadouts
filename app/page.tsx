@@ -10,7 +10,7 @@ export default function LandingPage() {
       <nav className={styles.nav}>
         <div className={styles.navInner}>
           <div className={styles.navLogo}>
-            <span className={styles.navEyebrow}>CALL OF DUTY</span>
+            <span className={styles.navEyebrow}>CALL OF DUTY: MODERN WARFARE III</span>
             <span className={styles.navTitle}>LOADOUT VAULT</span>
           </div>
           <div className={styles.navLinks}>
