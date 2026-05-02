@@ -28,9 +28,9 @@ export default async function Home() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link href="/" className={styles.logoBlock} style={{ textDecoration: "none" }}>
-            <div className={styles.logoEyebrow}>CALL OF DUTY</div>
+            <div className={styles.logoEyebrow}>CALL OF DUTY: MODERN WARFARE III</div>
             <h1 className={styles.logoTitle}>LOADOUT VAULT</h1>
-            <div className={styles.logoSub}>MODERN WARFARE III · COMMUNITY</div>
+            <div className={styles.logoSub}>BUILT BY RUSH GAMBINO</div>
           </Link>
           <div className={styles.headerActions}>
             <div className={styles.statPill}>
