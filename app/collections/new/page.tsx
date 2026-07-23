@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createSupabaseBrowserClient } from "@/lib/supabase-browser";
 import { useAuth } from "@/lib/AuthProvider";
@@ -8,7 +8,7 @@ import { Nav } from "@/components/Nav";
 import styles from "./new.module.css";
 
 export default function NewCollectionPage() {
-  const { user, profile } = useAuth();
+  const { user, profile, loading } = useAuth();
   const router = useRouter();
   const supabase = createSupabaseBrowserClient();
   const [name, setName] = useState("");
@@ -16,7 +16,11 @@ export default function NewCollectionPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  if (!user) { router.push("/login"); return null; }
+  useEffect(() => {
+    if (!loading && !user) router.push("/login");
+  }, [user, loading, router]);
+
+  if (loading || !user) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
