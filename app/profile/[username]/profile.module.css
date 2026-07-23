@@ -54,3 +54,6 @@
 @media (max-width: 768px) { .main { padding: 0 16px 32px; } .profileHeaderInner { gap: 16px; } .avatar { width: 60px; height: 60px; font-size: 24px; } .statsRow { flex-wrap: wrap; } .statItem { min-width: 50%; border-top: 1px solid var(--border); } .statDivider { display: none; } .grid { grid-template-columns: 1fr; } }
 
 .profileActions { margin-top: 10px; }
+
+.cardImageLink { display: block; text-decoration: none; }
+.cardTitleLink { text-decoration: none; color: inherit; }

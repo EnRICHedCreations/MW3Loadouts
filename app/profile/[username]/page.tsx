@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { supabase, Loadout, Profile } from "@/lib/supabase";
 import { Nav } from "@/components/Nav";
 import { ProfileShareButton } from "./ProfileShareButton";
 import { FollowButton } from "@/components/FollowButton";
+import { ProfileLoadoutGrid } from "./ProfileLoadoutGrid";
 import styles from "./profile.module.css";
 
 const WEAPON_CLASS_COLORS: Record<string, string> = {
@@ -103,43 +103,7 @@ export default async function ProfilePage({ params }: { params: { username: stri
             <span className={styles.labelDot}>▶</span>
             {loadouts.length === 0 ? "NO LOADOUTS SUBMITTED YET" : `${loadouts.length} ${loadouts.length === 1 ? "LOADOUT" : "LOADOUTS"}`}
           </div>
-
-          {loadouts.length === 0 ? (
-            <div className={styles.emptyState}>
-              <div className={styles.emptyIcon}>◈</div>
-              <p className={styles.emptyTitle}>NO BUILDS YET</p>
-              <p className={styles.emptyText}>This operator hasn&apos;t shared any loadouts yet.</p>
-              <Link href="/loadoutvault" className={styles.browseBtn}>BROWSE OTHER LOADOUTS</Link>
-            </div>
-          ) : (
-            <div className={styles.grid}>
-              {loadouts.map((loadout) => (
-                <Link key={loadout.id} href={`/loadout/${loadout.id}`} className={styles.card}>
-                  <div className={styles.cardImage}>
-                    {loadout.image_url ? (
-                      <Image src={loadout.image_url} alt={loadout.title} fill style={{ objectFit: "cover" }} />
-                    ) : (
-                      <div className={styles.cardImageFallback}><span>NO SCREENSHOT</span></div>
-                    )}
-                    <div className={styles.weaponBadge} style={{ borderColor: WEAPON_CLASS_COLORS[loadout.weapon_class] || "var(--green-primary)", color: WEAPON_CLASS_COLORS[loadout.weapon_class] || "var(--green-primary)" }}>
-                      {loadout.weapon_class}
-                    </div>
-                  </div>
-                  <div className={styles.cardBody}>
-                    <h2 className={styles.cardTitle}>{loadout.title}</h2>
-                    {loadout.description && <p className={styles.cardDesc}>{loadout.description}</p>}
-                    <div className={styles.cardMeta}>
-                      <span className={styles.cardDate}>{new Date(loadout.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
-                      <div className={styles.cardStats}>
-                        <span className={styles.statBadge}>❤ {loadout.likes ?? 0}</span>
-                        <span className={styles.statBadge}>◉ {loadout.views ?? 0}</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
+          <ProfileLoadoutGrid loadouts={loadouts} />
         </div>
       </main>
     </div>

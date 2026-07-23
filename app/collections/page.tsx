@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { Nav } from "@/components/Nav";
+import { CollectionCard } from "./CollectionCard";
 import styles from "./collections.module.css";
 
 export const revalidate = 0;
@@ -16,7 +17,7 @@ export default async function CollectionsPage() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.scanline} />
-      <Nav />
+      <Nav page="collections" />
 
       <main className={styles.main}>
         <div className={styles.pageHeader}>
@@ -40,22 +41,7 @@ export default async function CollectionsPage() {
           </div>
         ) : (
           <div className={styles.grid}>
-            {collections.map((col) => (
-              <Link key={col.id} href={`/collections/${col.id}`} className={styles.card}>
-                <div className={styles.cardBody}>
-                  <h2 className={styles.cardTitle}>{col.name}</h2>
-                  {col.description && <p className={styles.cardDesc}>{col.description}</p>}
-                  <div className={styles.cardMeta}>
-                    <Link href={`/profile/${encodeURIComponent(col.author)}`} className={styles.cardAuthor} onClick={(e) => e.stopPropagation()}>
-                      <span className={styles.authorDot}>◆</span>{col.author}
-                    </Link>
-                    <span className={styles.cardCount}>
-                      {col.collection_items?.[0]?.count ?? 0} loadouts
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+            {collections.map((col) => <CollectionCard key={col.id} col={col} />)}
           </div>
         )}
       </main>

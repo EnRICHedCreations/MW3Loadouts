@@ -12,9 +12,11 @@
 .headerDivider { height: 2px; background: linear-gradient(90deg, transparent 0%, var(--green-dim) 20%, var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%); margin-bottom: 28px; }
 
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; animation: fadeInUp 0.3s ease; }
-.card { display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all 0.2s ease; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); overflow: hidden; }
+.card { display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border); transition: all 0.2s ease; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); overflow: hidden; }
 .card:hover { border-color: var(--green-primary); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+.cardImageLink { display: block; text-decoration: none; }
 .cardImage { width: 100%; height: 180px; position: relative; background: var(--bg-panel); border-bottom: 1px solid var(--border); overflow: hidden; }
+.cardTitleLink { text-decoration: none; color: inherit; }
 .cardImageFallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, var(--bg-panel), var(--bg-panel) 8px, rgba(48,24,24,0.5) 8px, rgba(48,24,24,0.5) 16px); }
 .cardImageFallback span { font-family: "Barlow Condensed", sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); }
 .weaponBadge { position: absolute; top: 8px; right: 8px; padding: 3px 8px; background: rgba(10,8,8,0.85); border: 1px solid; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; backdrop-filter: blur(4px); }

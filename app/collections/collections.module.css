@@ -15,12 +15,13 @@
 
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; animation: fadeInUp 0.3s ease; }
 
-.card { background: var(--bg-card); border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all 0.2s ease; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
+.card { background: var(--bg-card); border: 1px solid var(--border); transition: all 0.2s ease; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); display: flex; flex-direction: column; }
 .card:hover { border-color: var(--green-primary); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
-.cardBody { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.cardLink { text-decoration: none; color: inherit; flex: 1; }
+.cardBody { padding: 20px 20px 12px; display: flex; flex-direction: column; gap: 10px; }
 .cardTitle { font-family: "Bebas Neue", cursive; font-size: 22px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.1; }
 .cardDesc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
-.cardMeta { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border); }
+.cardMeta { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-top: 1px solid var(--border); }
 .cardAuthor { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; color: var(--green-primary); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.15s; }
 .cardAuthor:hover { color: var(--green-bright); }
 .authorDot { font-size: 7px; }
