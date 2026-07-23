@@ -66,3 +66,5 @@
   .feedCard { flex-direction: column; }
   .feedCardImage { width: 100%; height: 160px; border-right: none; border-bottom: 1px solid var(--border); }
 }
+
+.loadingState { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 100px 32px; text-align: center; }

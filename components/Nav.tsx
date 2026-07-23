@@ -34,6 +34,7 @@ export function Nav({ page }: { page?: string }) {
               {user ? (
                 <>
                   <Link href="/feed" className={`${styles.link} ${page === "feed" ? styles.active : ""}`}>FEED</Link>
+                  <Link href="/collections" className={`${styles.link} ${page === "collections" ? styles.active : ""}`}>COLLECTIONS</Link>
                   <Link href="/submit" className={`${styles.link} ${page === "submit" ? styles.active : ""}`}>+ SUBMIT</Link>
                   <div className={styles.userPill}>
                     <span className={styles.userDot}>◆</span>
