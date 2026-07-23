@@ -1,0 +1,49 @@
+.related { margin-top: 48px; }
+
+.relatedHeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.labelDot { color: var(--green-primary); font-size: 8px; }
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.relatedCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.relatedCard:hover { border-color: var(--green-primary); transform: translateY(-2px); }
+
+.relatedImage { width: 100%; height: 100px; position: relative; background: var(--bg-panel); border-bottom: 1px solid var(--border); overflow: hidden; }
+.relatedFallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, var(--bg-panel), var(--bg-panel) 6px, rgba(48,24,24,0.5) 6px, rgba(48,24,24,0.5) 12px); }
+.relatedFallback span { font-family: "Barlow Condensed", sans-serif; font-size: 9px; letter-spacing: 0.15em; color: var(--text-dim); }
+.relatedBadge { position: absolute; bottom: 6px; right: 6px; padding: 2px 6px; background: rgba(10,8,8,0.85); border: 1px solid; font-family: "Barlow Condensed", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.relatedBody { padding: 10px; display: flex; flex-direction: column; gap: 3px; }
+.relatedTitle { font-family: "Bebas Neue", cursive; font-size: 14px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.1; }
+.relatedAuthor { font-family: "Barlow Condensed", sans-serif; font-size: 10px; color: var(--green-primary); letter-spacing: 0.06em; }
+.relatedStats { font-family: "Barlow Condensed", sans-serif; font-size: 10px; color: var(--text-dim); letter-spacing: 0.05em; }
+
+@media (max-width: 600px) { .relatedGrid { grid-template-columns: 1fr; } }

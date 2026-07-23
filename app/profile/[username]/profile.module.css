@@ -1,0 +1,56 @@
+.wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+.scanline { pointer-events: none; position: fixed; inset: 0; z-index: 100; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px); }
+.main { flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 32px 48px; }
+
+.profileHeader { padding: 36px 0 0; }
+.profileHeaderInner { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+.avatarBlock { position: relative; flex-shrink: 0; }
+.avatar { width: 80px; height: 80px; background: var(--green-dim); border: 2px solid var(--green-primary); display: flex; align-items: center; justify-content: center; font-family: "Bebas Neue", cursive; font-size: 32px; letter-spacing: 0.05em; color: var(--green-bright); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); box-shadow: 0 0 24px rgba(204,32,32,0.2); }
+.onlineRing { position: absolute; bottom: 4px; right: 4px; width: 12px; height: 12px; border-radius: 50%; background: #40c060; border: 2px solid var(--bg-deep); box-shadow: 0 0 6px #40c060; }
+.profileInfo { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.profileLabel { display: flex; align-items: center; gap: 6px; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.25em; color: var(--text-dim); }
+.labelDot { color: var(--green-primary); font-size: 8px; }
+.profileUsername { font-family: "Bebas Neue", cursive; font-size: clamp(36px, 5vw, 56px); letter-spacing: 0.05em; color: var(--text-primary); line-height: 1; animation: flicker 10s infinite; }
+.profileMeta { display: flex; align-items: center; gap: 16px; }
+.metaItem { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: var(--text-dim); display: flex; align-items: center; gap: 5px; }
+.metaDot { font-size: 7px; color: var(--green-primary); }
+.shareBtn { font-family: "Barlow Condensed", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; padding: 9px 18px; background: var(--bg-panel); border: 1px solid var(--border-bright); color: var(--text-secondary); cursor: pointer; transition: all 0.15s ease; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); align-self: flex-start; white-space: nowrap; }
+.shareBtn:hover { border-color: var(--green-primary); color: var(--green-bright); }
+
+.statsRow { display: flex; align-items: center; background: var(--bg-panel); border: 1px solid var(--border); }
+.statItem { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 20px 16px; gap: 4px; }
+.statValue { font-family: "Bebas Neue", cursive; font-size: 32px; line-height: 1; letter-spacing: 0.05em; color: var(--green-primary); }
+.statLabel { font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--text-dim); }
+.statDivider { width: 1px; height: 48px; background: var(--border); flex-shrink: 0; }
+.headerDividerBottom { height: 2px; background: linear-gradient(90deg, transparent 0%, var(--green-dim) 20%, var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%); margin-bottom: 36px; }
+
+.content { display: flex; flex-direction: column; gap: 20px; }
+.sectionLabel { display: flex; align-items: center; gap: 7px; font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--text-dim); text-transform: uppercase; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; animation: fadeInUp 0.3s ease; }
+.card { display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all 0.2s ease; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); position: relative; overflow: hidden; }
+.card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(204,32,32,0.05) 0%, transparent 60%); opacity: 0; transition: opacity 0.2s ease; pointer-events: none; }
+.card:hover { border-color: var(--green-primary); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+.card:hover::before { opacity: 1; }
+.cardImage { width: 100%; height: 180px; position: relative; background: var(--bg-panel); border-bottom: 1px solid var(--border); overflow: hidden; }
+.cardImageFallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, var(--bg-panel), var(--bg-panel) 8px, rgba(48,24,24,0.5) 8px, rgba(48,24,24,0.5) 16px); }
+.cardImageFallback span { font-family: "Barlow Condensed", sans-serif; font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); }
+.weaponBadge { position: absolute; top: 8px; right: 8px; padding: 3px 8px; background: rgba(10,8,8,0.85); border: 1px solid; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; backdrop-filter: blur(4px); }
+.cardBody { padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.cardTitle { font-family: "Bebas Neue", cursive; font-size: 20px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.1; }
+.cardDesc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cardMeta { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border); }
+.cardDate { font-family: "Barlow Condensed", sans-serif; font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em; }
+.cardStats { display: flex; align-items: center; gap: 8px; }
+.statBadge { font-family: "Barlow Condensed", sans-serif; font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; }
+
+.emptyState { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 80px 32px; text-align: center; }
+.emptyIcon { font-size: 48px; color: var(--green-dim); animation: pulse-glow 3s infinite; }
+.emptyTitle { font-family: "Bebas Neue", cursive; font-size: 28px; letter-spacing: 0.1em; color: var(--text-secondary); }
+.emptyText { font-size: 14px; color: var(--text-dim); }
+.browseBtn { display: inline-flex; align-items: center; padding: 10px 20px; background: var(--green-dim); border: 1px solid var(--green-primary); color: var(--green-bright); font-family: "Barlow Condensed", sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-decoration: none; transition: all 0.15s ease; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
+.browseBtn:hover { background: var(--green-primary); color: var(--bg-deep); }
+
+@media (max-width: 768px) { .main { padding: 0 16px 32px; } .profileHeaderInner { gap: 16px; } .avatar { width: 60px; height: 60px; font-size: 24px; } .statsRow { flex-wrap: wrap; } .statItem { min-width: 50%; border-top: 1px solid var(--border); } .statDivider { display: none; } .grid { grid-template-columns: 1fr; } }
+
+.profileActions { margin-top: 10px; }

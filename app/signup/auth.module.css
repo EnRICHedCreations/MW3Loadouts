@@ -1,0 +1,28 @@
+.wrapper { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 32px 16px; position: relative; background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(204,32,32,0.012) 2px, rgba(204,32,32,0.012) 4px), radial-gradient(ellipse at 50% 30%, rgba(204,32,32,0.06) 0%, transparent 60%); }
+.scanline { pointer-events: none; position: fixed; inset: 0; z-index: 100; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px); }
+.card { width: 100%; max-width: 440px; background: var(--bg-card); border: 1px solid var(--border); clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px)); position: relative; z-index: 1; animation: fadeInUp 0.3s ease; }
+.cardHeader { padding: 24px 28px 20px; }
+.logoLink { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+.logoEyebrow { font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.25em; color: var(--green-primary); }
+.logoTitle { font-family: "Bebas Neue", cursive; font-size: 32px; line-height: 1; letter-spacing: 0.06em; color: var(--text-primary); animation: flicker 8s infinite; }
+.logoSub { font-family: "Barlow Condensed", sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); }
+.cardDivider { height: 2px; background: linear-gradient(90deg, transparent 0%, var(--green-dim) 20%, var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%); }
+.cardBody { padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+.formTitle { font-family: "Bebas Neue", cursive; font-size: 26px; letter-spacing: 0.1em; color: var(--text-primary); }
+.form { display: flex; flex-direction: column; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.label { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
+.labelDot { color: var(--green-primary); font-size: 8px; }
+.input { width: 100%; background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-primary); font-family: "Barlow Condensed", sans-serif; font-size: 15px; padding: 10px 14px; outline: none; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+.input::placeholder { color: var(--text-dim); }
+.input:focus { border-color: var(--green-primary); box-shadow: 0 0 0 1px var(--green-dim), inset 0 0 12px rgba(204,32,32,0.04); }
+.hint { font-family: "Barlow Condensed", sans-serif; font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; }
+.error { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: rgba(184,50,50,0.1); border: 1px solid #b83232; color: #e07070; font-family: "Barlow Condensed", sans-serif; font-size: 13px; }
+.submitBtn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px 24px; background: var(--green-dim); border: 1px solid var(--green-primary); color: var(--green-bright); font-family: "Bebas Neue", cursive; font-size: 20px; letter-spacing: 0.1em; cursor: pointer; transition: all 0.15s ease; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); margin-top: 4px; }
+.submitBtn:hover:not(:disabled) { background: var(--green-primary); color: var(--bg-deep); box-shadow: 0 0 28px rgba(204,32,32,0.4); }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+.spinner { width: 16px; height: 16px; border: 2px solid rgba(204,32,32,0.3); border-top-color: var(--green-bright); border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.footer { display: flex; align-items: center; justify-content: center; gap: 8px; font-family: "Barlow Condensed", sans-serif; font-size: 13px; color: var(--text-dim); padding-top: 4px; }
+.footerLink { color: var(--green-primary); text-decoration: none; font-weight: 700; letter-spacing: 0.1em; transition: color 0.15s; }
+.footerLink:hover { color: var(--green-bright); }

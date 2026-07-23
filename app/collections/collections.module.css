@@ -1,0 +1,34 @@
+.wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+.scanline { pointer-events: none; position: fixed; inset: 0; z-index: 100; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px); }
+.main { flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 32px 48px; }
+.pageHeader { padding: 32px 0 20px; display: flex; flex-direction: column; gap: 8px; }
+.pageLabel { display: flex; align-items: center; gap: 6px; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.25em; color: var(--text-dim); }
+.labelDot { color: var(--green-primary); font-size: 8px; }
+.pageTitle { font-family: "Bebas Neue", cursive; font-size: 52px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1; animation: flicker 10s infinite; }
+.pageSub { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--text-dim); }
+.headerDivider { height: 2px; background: linear-gradient(90deg, transparent 0%, var(--green-dim) 20%, var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%); margin-bottom: 28px; }
+
+.topBar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.count { font-family: "Barlow Condensed", sans-serif; font-size: 11px; letter-spacing: 0.15em; color: var(--text-dim); }
+.newBtn { display: inline-flex; align-items: center; padding: 8px 16px; background: var(--green-dim); border: 1px solid var(--green-primary); color: var(--green-bright); font-family: "Barlow Condensed", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-decoration: none; transition: all 0.15s ease; clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px)); }
+.newBtn:hover { background: var(--green-primary); color: var(--bg-deep); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; animation: fadeInUp 0.3s ease; }
+
+.card { background: var(--bg-card); border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all 0.2s ease; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
+.card:hover { border-color: var(--green-primary); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+.cardBody { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.cardTitle { font-family: "Bebas Neue", cursive; font-size: 22px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.1; }
+.cardDesc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+.cardMeta { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border); }
+.cardAuthor { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; color: var(--green-primary); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.15s; }
+.cardAuthor:hover { color: var(--green-bright); }
+.authorDot { font-size: 7px; }
+.cardCount { font-family: "Barlow Condensed", sans-serif; font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em; }
+
+.empty { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 80px 32px; text-align: center; }
+.emptyIcon { font-size: 48px; color: var(--green-dim); animation: pulse-glow 3s infinite; }
+.emptyTitle { font-family: "Bebas Neue", cursive; font-size: 28px; letter-spacing: 0.1em; color: var(--text-secondary); }
+.emptyText { font-size: 14px; color: var(--text-dim); }
+
+@media (max-width: 768px) { .main { padding: 0 16px 32px; } .grid { grid-template-columns: 1fr; } }

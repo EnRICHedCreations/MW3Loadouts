@@ -1,0 +1,50 @@
+.wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+.scanline { pointer-events: none; position: fixed; inset: 0; z-index: 100; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px); }
+.main { flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 32px 48px; }
+
+.pageHeader { padding: 32px 0 20px; display: flex; flex-direction: column; gap: 8px; }
+.pageLabel { display: flex; align-items: center; gap: 6px; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.25em; color: var(--text-dim); }
+.labelDot { color: var(--green-primary); font-size: 8px; }
+.pageTitle { font-family: "Bebas Neue", cursive; font-size: 52px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1; animation: flicker 10s infinite; }
+.pageSub { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--text-dim); }
+.headerDivider { height: 2px; background: linear-gradient(90deg, transparent 0%, var(--green-dim) 20%, var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%); margin-bottom: 40px; }
+
+.section { margin-bottom: 48px; }
+.sectionHeader { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; }
+.sectionTitle { font-family: "Bebas Neue", cursive; font-size: 24px; letter-spacing: 0.08em; color: var(--text-primary); }
+.sectionSub { font-family: "Barlow Condensed", sans-serif; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; }
+.empty { font-family: "Barlow Condensed", sans-serif; font-size: 13px; color: var(--text-dim); letter-spacing: 0.1em; padding: 20px 0; }
+
+.gridLarge { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+
+.card { position: relative; display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all 0.2s ease; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); overflow: hidden; }
+.card:hover { border-color: var(--green-primary); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+
+.rank { position: absolute; top: 10px; left: 10px; z-index: 2; font-family: "Bebas Neue", cursive; font-size: 20px; color: var(--bg-deep); background: var(--green-primary); padding: 2px 8px; line-height: 1; letter-spacing: 0.05em; }
+
+.cardImage { width: 100%; height: 180px; position: relative; background: var(--bg-panel); border-bottom: 1px solid var(--border); overflow: hidden; }
+.cardImageFallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, var(--bg-panel), var(--bg-panel) 8px, rgba(48,24,24,0.5) 8px, rgba(48,24,24,0.5) 16px); }
+.cardImageFallback span { font-family: "Barlow Condensed", sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); }
+.weaponBadge { position: absolute; top: 8px; right: 8px; padding: 3px 8px; background: rgba(10,8,8,0.85); border: 1px solid; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; backdrop-filter: blur(4px); }
+
+.cardBody { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.cardTitle { font-family: "Bebas Neue", cursive; font-size: 18px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.1; }
+.cardMeta { display: flex; align-items: center; justify-content: space-between; }
+.cardAuthor { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--green-primary); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.15s; }
+.cardAuthor:hover { color: var(--green-bright); }
+.authorDot { font-size: 7px; }
+.cardStats { display: flex; gap: 8px; font-family: "Barlow Condensed", sans-serif; font-size: 11px; color: var(--text-dim); }
+
+/* List view */
+.listView { display: flex; flex-direction: column; border: 1px solid var(--border); background: var(--bg-card); overflow: hidden; }
+.listItem { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; transition: background 0.1s ease; }
+.listItem:last-child { border-bottom: none; }
+.listItem:hover { background: rgba(204,32,32,0.03); }
+.listRank { font-family: "Bebas Neue", cursive; font-size: 22px; color: var(--green-primary); min-width: 36px; letter-spacing: 0.05em; }
+.listInfo { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.listTitle { font-family: "Barlow Condensed", sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.05em; color: var(--text-primary); }
+.listAuthor { font-family: "Barlow Condensed", sans-serif; font-size: 11px; color: var(--text-dim); letter-spacing: 0.08em; }
+.listStats { display: flex; gap: 12px; font-family: "Barlow Condensed", sans-serif; font-size: 12px; color: var(--text-secondary); }
+
+@media (max-width: 768px) { .main { padding: 0 16px 32px; } .gridLarge, .grid { grid-template-columns: 1fr; } }

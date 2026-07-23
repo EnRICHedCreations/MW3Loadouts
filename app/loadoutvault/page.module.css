@@ -1,0 +1,12 @@
+.wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+.scanline { pointer-events: none; position: fixed; inset: 0; z-index: 100; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px); }
+.main { flex: 1; }
+.mainHeader { max-width: 1400px; margin: 0 auto; padding: 32px 32px 24px; display: flex; flex-direction: column; gap: 8px; }
+.mainLabel { display: flex; align-items: center; gap: 7px; font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.25em; color: var(--text-dim); }
+.labelDot { color: var(--green-primary); font-size: 8px; }
+.mainTitle { font-family: "Bebas Neue", cursive; font-size: 48px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1; animation: flicker 10s infinite; }
+.mainSub { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--text-dim); }
+.mainDivider { height: 2px; background: linear-gradient(90deg, transparent 0%, var(--green-dim) 20%, var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%); margin-bottom: 32px; }
+.content { max-width: 1400px; margin: 0 auto; padding: 0 32px 48px; }
+.footer { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 20px; font-family: "Barlow Condensed", sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); border-top: 1px solid var(--border); }
+@media (max-width: 768px) { .mainHeader { padding: 24px 16px 16px; } .content { padding: 0 16px 32px; } }

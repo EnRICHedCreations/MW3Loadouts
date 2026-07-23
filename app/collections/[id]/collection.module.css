@@ -1,0 +1,51 @@
+.wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+.scanline { pointer-events: none; position: fixed; inset: 0; z-index: 100; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px); }
+.main { flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 32px 48px; }
+.pageHeader { padding: 32px 0 20px; display: flex; flex-direction: column; gap: 8px; }
+.pageLabel { display: flex; align-items: center; gap: 6px; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.25em; color: var(--text-dim); }
+.labelDot { color: var(--green-primary); font-size: 8px; }
+.authorLink { color: var(--green-primary); text-decoration: none; transition: color 0.15s; }
+.authorLink:hover { color: var(--green-bright); }
+.pageTitle { font-family: "Bebas Neue", cursive; font-size: 52px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1; animation: flicker 10s infinite; }
+.pageDesc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.pageSub { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: var(--text-dim); }
+.headerDivider { height: 2px; background: linear-gradient(90deg, transparent 0%, var(--green-dim) 20%, var(--green-primary) 50%, var(--green-dim) 80%, transparent 100%); margin-bottom: 28px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; animation: fadeInUp 0.3s ease; }
+.card { display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all 0.2s ease; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); overflow: hidden; }
+.card:hover { border-color: var(--green-primary); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+.cardImage { width: 100%; height: 180px; position: relative; background: var(--bg-panel); border-bottom: 1px solid var(--border); overflow: hidden; }
+.cardImageFallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, var(--bg-panel), var(--bg-panel) 8px, rgba(48,24,24,0.5) 8px, rgba(48,24,24,0.5) 16px); }
+.cardImageFallback span { font-family: "Barlow Condensed", sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); }
+.weaponBadge { position: absolute; top: 8px; right: 8px; padding: 3px 8px; background: rgba(10,8,8,0.85); border: 1px solid; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; backdrop-filter: blur(4px); }
+.cardBody { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.cardTitle { font-family: "Bebas Neue", cursive; font-size: 20px; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.1; }
+.cardDesc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cardMeta { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border); }
+.cardAuthor { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 600; color: var(--green-primary); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: color 0.15s; }
+.cardAuthor:hover { color: var(--green-bright); }
+.authorDot { font-size: 7px; }
+.cardStats { display: flex; gap: 8px; font-family: "Barlow Condensed", sans-serif; font-size: 11px; color: var(--text-dim); }
+
+.empty { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 80px 32px; text-align: center; }
+.emptyIcon { font-size: 48px; color: var(--green-dim); animation: pulse-glow 3s infinite; }
+.emptyTitle { font-family: "Bebas Neue", cursive; font-size: 28px; letter-spacing: 0.1em; color: var(--text-secondary); }
+.emptyText { font-size: 14px; color: var(--text-dim); }
+.browseBtn { display: inline-flex; align-items: center; padding: 10px 20px; background: var(--green-dim); border: 1px solid var(--green-primary); color: var(--green-bright); font-family: "Barlow Condensed", sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-decoration: none; transition: all 0.15s ease; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
+.browseBtn:hover { background: var(--green-primary); color: var(--bg-deep); }
+
+/* Add to collection */
+.addToColWrap { position: relative; }
+.addToColBtn { font-family: "Barlow Condensed", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; padding: 5px 12px; background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-secondary); cursor: pointer; transition: all 0.15s ease; }
+.addToColBtn:hover { border-color: var(--green-primary); color: var(--green-bright); }
+
+.colDropdown { position: absolute; top: calc(100% + 6px); right: 0; width: 220px; background: var(--bg-card); border: 1px solid var(--border); z-index: 50; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+.colDropdownHeader { padding: 10px 14px; font-family: "Barlow Condensed", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--text-dim); border-bottom: 1px solid var(--border); background: var(--bg-panel); }
+.colItem { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 14px; background: none; border: none; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-family: "Barlow Condensed", sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; text-align: left; transition: background 0.1s ease; }
+.colItem:hover { background: rgba(204,32,32,0.05); color: var(--text-primary); }
+.colItemAdded { color: var(--green-primary); }
+.colEmpty { padding: 12px 14px; }
+.colNewLink { display: block; padding: 10px 14px; font-family: "Barlow Condensed", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--green-primary); text-decoration: none; border-top: 1px solid var(--border); transition: color 0.15s; }
+.colNewLink:hover { color: var(--green-bright); }
+
+@media (max-width: 768px) { .main { padding: 0 16px 32px; } .grid { grid-template-columns: 1fr; } }
