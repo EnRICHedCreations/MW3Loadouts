@@ -33,14 +33,23 @@ async function getFollowingCount(userId: string): Promise<number> {
   return data ?? 0;
 }
 
+async function getBadges(userId: string): Promise<string[]> {
+  const { data } = await supabase
+    .from("badges")
+    .select("badge")
+    .eq("user_id", userId);
+  return (data || []).map((b) => b.badge);
+}
+
 export default async function ProfilePage({ params }: { params: { username: string } }) {
   const profile = await getProfile(params.username);
   if (!profile) notFound();
 
-  const [loadouts, followerCount, followingCount] = await Promise.all([
+  const [loadouts, followerCount, followingCount, badges] = await Promise.all([
     getLoadoutsByUser(profile.id),
     getFollowerCount(profile.id),
     getFollowingCount(profile.id),
+    getBadges(profile.id),
   ]);
 
   const totalLikes = loadouts.reduce((sum, l) => sum + (l.likes ?? 0), 0);
@@ -65,6 +74,15 @@ export default async function ProfilePage({ params }: { params: { username: stri
             <div className={styles.profileInfo}>
               <div className={styles.profileLabel}><span className={styles.labelDot}>▶</span> OPERATOR PROFILE</div>
               <h1 className={styles.profileUsername}>{profile.username}</h1>
+              {badges.length > 0 && (
+                <div className={styles.badgeRow}>
+                  {badges.map((badge) => (
+                    <div key={badge} className={styles.badge} title={badge}>
+                      {badge === "Code Cracker" && <><span className={styles.badgeIcon}>🏅</span> {badge}</>}
+                    </div>
+                  ))}
+                </div>
+              )}
               <div className={styles.profileMeta}>
                 <span className={styles.metaItem}><span className={styles.metaDot}>◆</span>MEMBER SINCE {memberSince.toUpperCase()}</span>
                 <span className={styles.metaItem}><span className={styles.metaDot}>◆</span>{followerCount} FOLLOWERS</span>
