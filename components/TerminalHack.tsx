@@ -11,16 +11,16 @@ const KONAMI = [
 ];
 
 const CLASSIFIED_LOADOUT = {
-  title: "THE REAPER",
-  class: "Assault",
+  title: "THE DRTY DTIR",
+  class: "Battle Rifle",
   attachments: [
-    { slot: "MUZZLE",      value: "Shadowstrike Suppressor" },
-    { slot: "BARREL",      value: "Bruen Venom Long Barrel" },
-    { slot: "OPTIC",       value: "Slate Reflector" },
-    { slot: "UNDERBARREL", value: "DR-6 Handstop" },
-    { slot: "MAGAZINE",    value: "45 Round Mag" },
+    { slot: "MUZZLE",      value: "Quartermaster Suppressor" },
+    { slot: "BARREL",      value: "Fixer 1.4 Long Barrel" },
+    { slot: "OPTIC",       value: "Heinrichter Hybrid Optic" },
+    { slot: "UNDERBARREL", value: "Jak Slash" },
+    { slot: "Ammunition",    value: ".30-06 Mono" },
   ],
-  notes: "High-value target elimination. Subsonic. No trace. Run this when you need to disappear into the lobby and not be found until the killcam.",
+  notes: "High-value target elimination. Wallbanger. Run this when you need to delete enemies from afar.",
   classification: "TOP SECRET // OPERATOR EYES ONLY",
   operator: "RUSH GAMBINO",
   clearance: "LEVEL 5",
