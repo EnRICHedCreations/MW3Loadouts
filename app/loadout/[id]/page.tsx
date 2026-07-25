@@ -10,6 +10,7 @@ import { Comments } from "./Comments";
 import { CloneButton } from "./CloneButton";
 import { RelatedLoadouts } from "./RelatedLoadouts";
 import { AddToCollectionButton } from "@/app/collections/[id]/AddToCollectionButton";
+import { EditButton } from "./EditButton";
 import styles from "./loadout.module.css";
 
 async function getLoadout(id: string): Promise<Loadout | null> {
@@ -58,6 +59,7 @@ export default async function LoadoutPage({ params }: { params: { id: string } }
           <Link href="/loadoutvault" className={styles.backBtn}>← BACK TO VAULT</Link>
           <div className={styles.topBarRight}>
             <div className={styles.weaponBadge}>{loadout.weapon_class}</div>
+            <EditButton loadoutId={loadout.id} ownerId={loadout.user_id} />
             <AddToCollectionButton loadoutId={loadout.id} />
             <CloneButton loadoutId={loadout.id} loadoutTitle={loadout.title} />
             <ShareButton title={loadout.title} />

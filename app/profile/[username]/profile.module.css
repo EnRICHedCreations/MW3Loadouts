@@ -57,3 +57,16 @@
 
 .cardImageLink { display: block; text-decoration: none; }
 .cardTitleLink { text-decoration: none; color: inherit; }
+
+.editLink {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  transition: all 0.15s ease;
+}
+.editLink:hover { border-color: var(--green-primary); color: var(--green-bright); }

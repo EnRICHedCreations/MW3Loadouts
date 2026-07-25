@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useAuth } from "@/lib/AuthProvider";
 import { Loadout } from "@/lib/supabase";
 import styles from "./profile.module.css";
 
@@ -11,6 +12,7 @@ const WEAPON_CLASS_COLORS: Record<string, string> = {
 };
 
 export function ProfileLoadoutGrid({ loadouts }: { loadouts: Loadout[] }) {
+  const { user } = useAuth();
   if (loadouts.length === 0) {
     return (
       <div className={styles.emptyState}>
@@ -54,6 +56,11 @@ export function ProfileLoadoutGrid({ loadouts }: { loadouts: Loadout[] }) {
                 {new Date(loadout.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
               </span>
               <div className={styles.cardStats}>
+                {user?.id === loadout.user_id && (
+                  <Link href={`/loadout/${loadout.id}/edit`} className={styles.editLink} onClick={(e) => e.stopPropagation()}>
+                    ✎ EDIT
+                  </Link>
+                )}
                 <span className={styles.statBadge}>❤ {loadout.likes ?? 0}</span>
                 <span className={styles.statBadge}>◉ {loadout.views ?? 0}</span>
               </div>
