@@ -126,7 +126,7 @@ export default function EditLoadoutPage() {
       if (updateError) throw updateError;
 
       setSuccess(true);
-      setTimeout(() => router.push(`/loadout/${id}`), 1200);
+      setTimeout(() => { window.location.href = `/loadout/${id}`; }, 1200);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Update failed. Try again.");
     } finally {

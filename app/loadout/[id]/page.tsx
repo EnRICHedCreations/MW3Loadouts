@@ -13,6 +13,8 @@ import { AddToCollectionButton } from "@/app/collections/[id]/AddToCollectionBut
 import { EditButton } from "./EditButton";
 import styles from "./loadout.module.css";
 
+export const revalidate = 0;
+
 async function getLoadout(id: string): Promise<Loadout | null> {
   const { data, error } = await supabase.from("loadouts").select("*").eq("id", id).single();
   if (error || !data) return null;
